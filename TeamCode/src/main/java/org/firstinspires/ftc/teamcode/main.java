@@ -30,10 +30,39 @@ public class main extends OpMode {
         boolean buttonB = gamepad1.b;
         boolean buttonX = gamepad1.x;
         boolean buttonY = gamepad1.y;
+
+        boolean dpadUp = gamepad1.dpad_up;
+        boolean dpadDown = gamepad1.dpad_down;
+
         leftStickY1 = Range.clip(gamepad1.left_stick_y,-0.7,0.7);
         rightStickY1 = Range.clip(gamepad1.right_stick_y,-0.7,0.7);
 
         drive.drive(leftStickY1, rightStickY1);
+
+        //Block claw
+        if(buttonA){
+            claw.claw(200);
+            }
+        if(buttonB){
+            claw.claw(80);
+        }
+
+        //Ball claw
+        if(buttonX){
+            claw.claw(300);
+        }
+        if(buttonY){
+            claw.claw(80);
+        }
+
+        //Joint
+        if(dpadUp){
+            claw.joint(40);
+        }
+        if (dpadDown) {
+            claw.joint(80);
+        }
+
     }
     public void stop(){}
 }
