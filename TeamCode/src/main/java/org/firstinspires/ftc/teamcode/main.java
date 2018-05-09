@@ -14,12 +14,12 @@ public class main extends OpMode {
     public main(){}
 
     private RobotMap robot = new RobotMap();
-    private Claw claw = null;
+    private Shovel shovel = null;
     private Wheels drive = null;
 
     public void init(){
         robot.init(hardwareMap);
-        claw = new Claw(robot.clawLeft, robot.clawRight,
+        shovel = new Shovel(robot.clawLeft, robot.clawRight,
                     robot.clawJoint);
         drive = new Wheels(robot.leftWheel, robot.rightWheel);
     }
@@ -31,36 +31,25 @@ public class main extends OpMode {
         boolean buttonX = gamepad1.x;
         boolean buttonY = gamepad1.y;
 
-        boolean dpadUp = gamepad1.dpad_up;
-        boolean dpadDown = gamepad1.dpad_down;
-
         leftStickY1 = Range.clip(gamepad1.left_stick_y,-0.7,0.7);
         rightStickY1 = Range.clip(gamepad1.right_stick_y,-0.7,0.7);
 
         drive.drive(leftStickY1, rightStickY1);
 
-        //Block claw
+        //Shovel
         if(buttonA){
-            claw.claw(200);
+            shovel.shovel(160);
             }
         if(buttonB){
-            claw.claw(80);
+            shovel.shovel(150);
         }
 
-        //Ball claw
+        //Arm
         if(buttonX){
-            claw.claw(300);
+            shovel.arm(180);
         }
-        if(buttonY){
-            claw.claw(80);
-        }
-
-        //Joint
-        if(dpadUp){
-            claw.joint(40);
-        }
-        if (dpadDown) {
-            claw.joint(80);
+        if(buttonY) {
+            shovel.arm(0);
         }
 
     }

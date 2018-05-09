@@ -27,10 +27,10 @@ public class RobotMap {
 
         leftWheel.setDirection(REVERSE);
 
-        //Claw
-        clawLeft = hwMap.servo.get("Left Claw");
-        clawRight = hwMap.servo.get("Right Claw");
-        clawJoint = hwMap.servo.get("Claw Joint");
+        //Shovel
+        clawLeft = hwMap.servo.get("Left Shovel");
+        clawRight = hwMap.servo.get("Right Shovel");
+        clawJoint = hwMap.servo.get("Shovel Joint");
         clawLeft.setDirection(Servo.Direction.REVERSE);
 
     }
