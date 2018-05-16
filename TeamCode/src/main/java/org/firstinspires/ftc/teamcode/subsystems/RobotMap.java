@@ -11,9 +11,9 @@ public class RobotMap {
     public DcMotor leftWheel = null;
     public DcMotor rightWheel = null;
 
-    public Servo clawLeft = null;
-    public Servo clawRight = null;
-    public Servo clawJoint = null;
+    public Servo shovelLeft = null;
+    public Servo shovelRight = null;
+    public Servo shovelArm = null;
 
     public RobotMap(){}
 
@@ -22,17 +22,19 @@ public class RobotMap {
         leftWheel = hwMap.dcMotor.get("Left");
         rightWheel = hwMap.dcMotor.get("Right");
 
+        leftWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        rightWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
         leftWheel.setZeroPowerBehavior(BRAKE);
         rightWheel.setZeroPowerBehavior(BRAKE);
 
         leftWheel.setDirection(REVERSE);
 
         //Shovel
-        clawLeft = hwMap.servo.get("Left Shovel");
-        clawRight = hwMap.servo.get("Right Shovel");
-        clawJoint = hwMap.servo.get("Shovel Joint");
-        clawLeft.setDirection(Servo.Direction.REVERSE);
-
+        shovelLeft = hwMap.servo.get("Left Shovel");
+        shovelRight = hwMap.servo.get("Right Shovel");
+        shovelArm = hwMap.servo.get("Shovel Arm");
+        shovelLeft.setDirection(Servo.Direction.REVERSE);
     }
 
 }

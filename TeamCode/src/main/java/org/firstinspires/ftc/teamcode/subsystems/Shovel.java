@@ -14,10 +14,9 @@ public class Shovel {
     }
 
 
-    public int shovel(int scoopAngle){
-        this.shovelLeft.setPosition(scoopAngle);
-        this.shovelRight.setPosition(scoopAngle);
-        return scoopAngle;
+    public void shovel(int scoopAngle){
+        shovelLeft.setPosition(scoopAngle);
+        shovelRight.setPosition(scoopAngle);
     }
 
     public int arm(int armAngle){

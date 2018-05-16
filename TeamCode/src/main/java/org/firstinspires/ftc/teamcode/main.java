@@ -7,7 +7,6 @@ import com.qualcomm.robotcore.util.Range;
 import org.firstinspires.ftc.teamcode.subsystems.*;
 import org.firstinspires.ftc.teamcode.subsystems.RobotMap;
 
-
 @TeleOp
 public class main extends OpMode {
 
@@ -19,8 +18,8 @@ public class main extends OpMode {
 
     public void init(){
         robot.init(hardwareMap);
-        shovel = new Shovel(robot.clawLeft, robot.clawRight,
-                    robot.clawJoint);
+        shovel = new Shovel(robot.shovelLeft, robot.shovelRight,
+                    robot.shovelArm);
         drive = new Wheels(robot.leftWheel, robot.rightWheel);
     }
     public void start(){}
@@ -38,10 +37,14 @@ public class main extends OpMode {
 
         //Shovel
         if(buttonA){
-            shovel.shovel(160);
+            //shovel.shovel(260);
+            robot.shovelLeft.setPosition(1);
+            robot.shovelRight.setPosition(1);
             }
         if(buttonB){
-            shovel.shovel(150);
+            //shovel.shovel(80);
+            robot.shovelLeft.setPosition(0.85);
+            robot.shovelRight.setPosition(0.85);
         }
 
         //Arm
