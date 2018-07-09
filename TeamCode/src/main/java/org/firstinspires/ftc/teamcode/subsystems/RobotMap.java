@@ -3,8 +3,7 @@ package org.firstinspires.ftc.teamcode.subsystems;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
-
-import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.BRAKE;
+import static com.qualcomm.robotcore.hardware.DcMotor.ZeroPowerBehavior.FLOAT;
 import static com.qualcomm.robotcore.hardware.DcMotorSimple.Direction.REVERSE;
 
 public class RobotMap {
@@ -25,8 +24,8 @@ public class RobotMap {
         leftWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightWheel.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        leftWheel.setZeroPowerBehavior(BRAKE);
-        rightWheel.setZeroPowerBehavior(BRAKE);
+        leftWheel.setZeroPowerBehavior(FLOAT);
+        rightWheel.setZeroPowerBehavior(FLOAT);
 
         leftWheel.setDirection(REVERSE);
 

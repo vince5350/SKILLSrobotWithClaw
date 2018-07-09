@@ -27,32 +27,35 @@ public class main extends OpMode {
         double leftStickY1, rightStickY1;
         boolean buttonA = gamepad1.a;
         boolean buttonB = gamepad1.b;
-        boolean buttonX = gamepad1.x;
-        boolean buttonY = gamepad1.y;
+        boolean bumpLeft = gamepad1.left_bumper;
+        boolean bumpRight = gamepad1.right_bumper;
 
-        leftStickY1 = Range.clip(gamepad1.left_stick_y,-0.7,0.7);
-        rightStickY1 = Range.clip(gamepad1.right_stick_y,-0.7,0.7);
+        leftStickY1 = Range.clip(gamepad1.left_stick_y,-1,1);
+        rightStickY1 = Range.clip(gamepad1.right_stick_y,-1,1);
 
         drive.drive(leftStickY1, rightStickY1);
 
         //Shovel
-        if(buttonA){
+
+        if(buttonB){
             //shovel.shovel(260);
             robot.shovelLeft.setPosition(1);
             robot.shovelRight.setPosition(1);
             }
-        if(buttonB){
+        if(buttonA){
             //shovel.shovel(80);
-            robot.shovelLeft.setPosition(0.85);
-            robot.shovelRight.setPosition(0.85);
+            robot.shovelLeft.setPosition(0.75);
+            robot.shovelRight.setPosition(0.75);
         }
 
         //Arm
-        if(buttonX){
-            shovel.arm(180);
+        if(bumpRight){
+            shovel.arm(1);
         }
-        if(buttonY) {
-            shovel.arm(0);
+
+
+        if(bumpLeft) {
+            shovel.arm(-1);
         }
 
     }

@@ -11,7 +11,7 @@ public class Wheels {
     }
 
     public void drive(double left, double right){
-        leftWheel.setPower(left);
-        rightWheel.setPower(right);
+        leftWheel.setPower(left/2);
+        rightWheel.setPower(right/2);
     }
 }
